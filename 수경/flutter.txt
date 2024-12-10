@@ -1,0 +1,17 @@
+Android studio
+https://developer.android.com/studio/install?hl=ko#windows
+
+flutter
+https://flutter-ko.dev/get-started/install/windows
+
+안드로이드 스튜디오 설정
+SDK manager -> SDK Tools -> Android SDK Command-line Tools (latest)
+
+vscode extention -> flutter install
+
+visual studio 윈도우 앱 다운
+https://visualstudio.microsoft.com/ko/downloads/
+
+실행 후 C++ 데스크톱 개발 버전으로 install
+
+터미널에 flutter doctor --android-licenses 입력 후 y
