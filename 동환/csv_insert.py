@@ -3,7 +3,7 @@ from sqlalchemy import create_engine
 from sqlalchemy.exc import SQLAlchemyError
 
 # CSV 파일 경로
-file_path = r"C:\Users\USER\Desktop\새 폴더\(2기) DX데이터스쿨_VOD\4월\상세보기_4월.csv"
+file_path = r"C:\Users\USER\Desktop\새 폴더\(2기) 이상치탐지_셋톱박스\장애내역.csv"
 
 # MySQL 연결 문자열
 host = "localhost" 
@@ -30,7 +30,7 @@ try:
             for chunk in df_iter:
                 # 청크별로 데이터 삽입
                 chunk.to_sql(
-                    name='vod_detail4',
+                    name='trouble',
                     con=connection,
                     index=False,
                     if_exists='append',  # 테이블이 없으면 생성, 있으면 데이터 추가
