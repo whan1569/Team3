@@ -3,13 +3,13 @@ from sqlalchemy import create_engine
 from sqlalchemy.exc import SQLAlchemyError
 
 # CSV 파일 경로
-file_path = r"C:\Users\USER\Desktop\새 폴더\(2기) DX데이터스쿨_VOD\4월\상세보기_4월.csv"
+file_path = r"C:\Users\USER\Desktop\lg자료\(2기) DX데이터스쿨_VOD\4월\VOD시청_4월.csv"
 
 # MySQL 연결 문자열
 host = "localhost" 
 database = "lg_hellovisionvod"  # 실제 MySQL 데이터베이스 이름으로 수정
 user = "root"
-password = "1234"
+password = "admin1234"
 port = "3306"  # MySQL 기본 포트
 
 # SQLAlchemy 엔진 생성
