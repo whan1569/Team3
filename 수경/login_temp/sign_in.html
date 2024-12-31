@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>회원가입</title>
+</head>
+<body>
+    <h1>회원가입</h1>
+
+    <!-- 여기에 서버 주소 넣기 -->
+    <form action="/your-server-endpoint" method="POST" enctype="multipart/form-data">
+        <!-- ID -->
+        <label for="id">아이디:</label>
+        <input type="text" id="id" name="id" required><br><br>
+
+        <!-- Name -->
+        <label for="name">이름:</label>
+        <input type="text" id="name" name="name" required><br><br>
+
+        <!-- Password -->
+        <label for="pw">비밀번호:</label>
+        <input type="password" id="pw" name="password" required><br><br>
+
+        <!-- Password Confirmation -->
+        <label for="pw_confirm">비밀번호 확인:</label>
+        <input type="password" id="pw_confirm" required><br><br>
+
+        <!-- Image -->
+        <label for="img">프로필 이미지:</label>
+        <input type="file" id="img" name="img" accept="image/*"><br><br>
+
+        <!-- Submit Button -->
+        <button type="submit">회원가입</button>
+    </form>
+
+    <script>
+        // 비밀번호 확인 로직
+        document.querySelector('form').addEventListener('submit', function(event) {
+            const pw = document.getElementById('pw').value;
+            const pwConfirm = document.getElementById('pw_confirm').value;
+
+            if (pw !== pwConfirm) {
+                alert('비밀번호와 비밀번호 확인이 일치하지 않습니다.');
+                event.preventDefault();
+            }
+        });
+    </script>
+</body>
+</html>
