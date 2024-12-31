@@ -1,0 +1,20 @@
+wrtr_disp 작가진   --- 성인물은 없음
+ttl 제목
+super_asset_nm 슈퍼에셋명(근본제목)
+smry 줄거리
+smry_lng 긴줄거리
+smry_shrt 짧은줄거리
+provider 프로바이더
+publctn_rt 허용기기
+orgnl_cntry 제작국가
+genre 장르
+genre_of_ct_cl 장르 분류명
+genre_of_ct_cl_cd 장르 분류명 코드
+epsd_nm 에피소드명
+epsd_id 에피소드ID
+director 연출가
+description  설명
+ct_cl 콘텐트 분류
+category 카테고리 경로
+asset_nm VOD이름
+actr_disp 출연진
