@@ -1,3 +1,4 @@
+asset_id
 wrtr_disp 작가진   --- 성인물은 없음
 ttl 제목
 super_asset_nm 슈퍼에셋명(근본제목)
