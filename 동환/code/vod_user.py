@@ -16,7 +16,7 @@ try:
         remote_cursor = remote_connection.cursor()
 
         # 월별로 데이터를 가져오는 쿼리
-        for month in range(7, 13):  # 7월부터 12월까지
+        for month in range(5, 7):  # 7월부터 12월까지
             month_str = f"{month:02d}"  # 월을 2자리로 포맷 (07, 08, ..., 12)
             like_pattern = f"2023{month_str}%"  # 예시: '202307%', '202308%', ...
 
