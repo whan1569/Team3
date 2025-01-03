@@ -4,7 +4,7 @@ from sqlalchemy.exc import SQLAlchemyError
 import logging
 
 # CSV 파일 경로
-file_path = r"C:\Users\USER\Desktop\Project\Data\3기데이터\data\vod_mart_data\vod_mart_data.csv"
+file_path = r"C:\Users\USER\Desktop\data\vod_mart_data.csv"
 
 # MySQL 연결 문자열
 host = "localhost"
