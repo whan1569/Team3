@@ -1,49 +1,47 @@
-import mysql.connector
-from mysql.connector import Error
+import pymysql
 
-def delete_adult_entries_by_month():
+def delete_adult_genre():
+    # MySQL 연결 정보
+    connection = pymysql.connect(
+        host='192.168.0.115',  # MySQL 서버 주소
+        user='root',           # 사용자 이름
+        password='1234',       # 비밀번호
+        database='lg_hellovisionvod',  # 데이터베이스 이름
+        charset='utf8mb4',
+        cursorclass=pymysql.cursors.DictCursor
+    )
+
     try:
-        # 원격 MySQL 서버 연결
-        remote_connection = mysql.connector.connect(
-            host="192.168.0.105",
-            user="root",
-            password="1234",
-            database="lg_hellovisionvod"
-        )
-
-        if remote_connection.is_connected():
-            print("원격 MySQL 연결 성공")
-
-            remote_cursor = remote_connection.cursor()
-
-            # 월별로 데이터를 삭제하는 작업
-            for month in range(1, 13):
-                month_str = f"2023{month:02d}"  # 월을 2자리로 포맷 (예: 202301, 202302)
-
-                # DELETE 쿼리 실행
+        with connection.cursor() as cursor:
+            # 삭제 작업을 배치로 실행
+            batch_size = 1000
+            while True:
+                # DELETE 쿼리 실행 (배치 단위)
                 delete_query = """
-                DELETE FROM vod_data
-                WHERE CT_CL = '성인' AND strt_dt LIKE %s;
+                DELETE FROM vod_data_202301
+                WHERE genre_of_ct_cl = '성인'
+                LIMIT %s;
                 """
-                remote_cursor.execute(delete_query, (f"{month_str}%",))
+                cursor.execute(delete_query, (batch_size,))
 
-                # 변경 사항 커밋
-                remote_connection.commit()
+                # 변경 사항 저장
+                connection.commit()
 
-                # 삭제된 행 수 기록
-                deleted = remote_cursor.rowcount
-                print(f"{month_str}월: {deleted} rows deleted.")
+                # 삭제된 행 개수 확인
+                rows_deleted = cursor.rowcount
+                print(f"Deleted {rows_deleted} rows")
 
-            print("모든 '성인' 데이터 삭제 완료.")
+                # 더 이상 삭제할 행이 없으면 종료
+                if rows_deleted < batch_size:
+                    break
 
-    except Error as e:
-        print(f"Error: {e}")
+        print("All rows with '성인' genre_of_ct_cl have been deleted.")
+
+    except Exception as e:
+        print("Error:", e)
 
     finally:
-        if remote_connection.is_connected():
-            remote_cursor.close()
-            remote_connection.close()
-            print("원격 MySQL 연결 종료")
+        connection.close()
 
-# 함수 실행
-delete_adult_entries_by_month()
+if __name__ == "__main__":
+    delete_adult_genre()
