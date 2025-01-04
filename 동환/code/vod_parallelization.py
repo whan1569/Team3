@@ -23,7 +23,7 @@ host_115 = '192.168.0.115'  # 115 컴퓨터의 IP 주소
 engine_115 = create_engine(f'mysql+mysqlconnector://{user}:{password}@{host_115}/{database}')
 
 # 월별로 데이터를 나누어 저장
-for month in range(1, 7):  # 1월(01)부터 11월(11)까지
+for month in range(6, 12):  # 1월(01)부터 11월(11)까지
     # 월별 데이터 필터링
     month_df = df[df['strt_dt'].dt.month == month]
     
