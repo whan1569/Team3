@@ -12,24 +12,11 @@ database = 'lg_hellovisionvod'
 host_115 = '192.168.0.115'  # 115 컴퓨터의 IP 주소
 engine_115 = create_engine(f'mysql+mysqlconnector://{user}:{password}@{host_115}/{database}')
 
-# 105 컴퓨터에서 데이터 가져오기
-engine_105 = create_engine(f'mysql+mysqlconnector://{user}:{password}@{host_105}/{database}')
-
-# 월별로 데이터를 반복하여 처리
-for month in range(1, 12):  # 1월부터 11월까지 반복
-    # 월별 조건에 맞는 SQL 쿼리
-    query = f"""
-        SELECT * 
-        FROM vod_data
-        WHERE strt_dt LIKE '2023{month:02d}%'
-    """
+# 월별로 데이터를 나누어 저장
+for month in range(1, 7):  # 1월(01)부터 11월(11)까지
+    # 월별 데이터 필터링
+    month_df = df[df['strt_dt'].dt.month == month]
     
-    # 데이터를 105 컴퓨터에서 가져오기
-    df = pd.read_sql(query, engine_105)
-
-    # strt_dt를 텍스트 형식으로 처리 (변환하지 않고 그대로 둡니다)
-    df['strt_dt'] = df['strt_dt'].astype(str)
-
     # 테이블명: vod_data_2023mm 형식
     table_name = f"vod_data_2023{month:02d}"
 
