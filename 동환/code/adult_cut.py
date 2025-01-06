@@ -15,27 +15,31 @@ def delete_adult_genre():
         with connection.cursor() as cursor:
             # 삭제 작업을 배치로 실행
             batch_size = 1000
-            while True:
-                # DELETE 쿼리 실행 (배치 단위)
-                delete_query = """
-                DELETE FROM vod_data_202301
-                WHERE genre_of_ct_cl = '성인'
-                LIMIT %s;
-                """
-                cursor.execute(delete_query, (batch_size,))
+            for month in range(1, 12):  # 1부터 11까지 반복
+                table_name = f"vod_data_2023{month:02d}"
+                print(f"Processing table: {table_name}")
 
-                # 변경 사항 저장
-                connection.commit()
+                while True:
+                    # DELETE 쿼리 실행 (배치 단위)
+                    delete_query = f"""
+                    DELETE FROM {table_name}
+                    WHERE genre_of_ct_cl = '성인'
+                    LIMIT %s;
+                    """
+                    cursor.execute(delete_query, (batch_size,))
 
-                # 삭제된 행 개수 확인
-                rows_deleted = cursor.rowcount
-                print(f"Deleted {rows_deleted} rows")
+                    # 변경 사항 저장
+                    connection.commit()
 
-                # 더 이상 삭제할 행이 없으면 종료
-                if rows_deleted < batch_size:
-                    break
+                    # 삭제된 행 개수 확인
+                    rows_deleted = cursor.rowcount
+                    print(f"Deleted {rows_deleted} rows from {table_name}")
 
-        print("All rows with '성인' genre_of_ct_cl have been deleted.")
+                    # 더 이상 삭제할 행이 없으면 종료
+                    if rows_deleted < batch_size:
+                        break
+
+        print("All rows with '성인' genre_of_ct_cl have been deleted from all tables.")
 
     except Exception as e:
         print("Error:", e)
