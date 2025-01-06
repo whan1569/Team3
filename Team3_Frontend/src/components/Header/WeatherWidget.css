@@ -1,0 +1,27 @@
+.weather-widget {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 16px;
+  color: white;
+  margin: 40px;
+}
+
+.weather-widget .weather-icon {
+  width: 30px;
+  height: 30px;
+}
+
+.weather-widget .temperature {
+  position: absolute; /* 부모 요소를 기준으로 배치 */
+  top: 0;
+  font-size: 18px;
+  font-weight: bold;
+  background: linear-gradient(#white, #ccc);
+}
+
+.weather-widget.error,
+.weather-widget.loading {
+  color: #ccc;
+  font-size: 18px;
+}

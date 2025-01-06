@@ -1,0 +1,139 @@
+.watching {
+    margin: 0;
+    padding: 20px 0;
+    background-color: #111;
+    border-radius: 8px;
+  }
+  
+  .title {
+    color: white;
+    margin-bottom: 20px;
+    margin-left: 20px;
+    font-size: 1.5rem;
+  }
+  
+  /* 슬라이더 */
+  .slider-container {
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .slider {
+    display: flex;
+    overflow-x: auto;
+    scroll-behavior: smooth;
+    gap: 20px;
+    padding: 10px;
+  }
+  
+  .slider::-webkit-scrollbar {
+    display: none;
+  }
+
+  /* 순위 스타일 */
+.rank {
+    position: absolute;
+    bottom: 2px; /* 왼쪽 하단 */
+    left: 2px;
+    font-size: 4rem;
+    background: linear-gradient(135deg, white, gray);
+    color: transparent;
+    -webkit-background-clip: text;
+    padding: 5px 10px;
+    border-radius: 5px;
+    font-weight: bold;
+}
+  
+  .movie {
+    position: relative;
+    flex: 0 0 auto;
+    width: 200px;
+    cursor: pointer;
+    transition: transform 0.3s ease-in-out;
+  }
+  
+  .movie-poster {
+    width: 80%;
+    height: auto;
+    border-radius: 10px;
+  }
+  
+  .movie:hover .movie-poster {
+    transform: scale(1.05);
+  }
+  
+  .movie-hover {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 300px;
+    height: 230px;
+    background-color: rgba(0, 0, 0, 0.9);
+    color: white;
+    padding: 20px;
+    text-align: center;
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+    z-index: 100;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease-in-out;
+  }
+  
+  .movie:hover .movie-hover {
+    opacity: 1;
+    pointer-events: auto;
+  }
+  
+  .hover-poster {
+    width: 100%;
+    height: 150px;
+    margin-bottom: 3px;
+    object-fit: cover;
+  }
+  
+  .movie-buttons {
+    margin-top: 1px;
+  }
+  
+  .play-btn,
+  .info-btn {
+    background-color: #e50914;
+    color: white;
+    border: none;
+    padding: 8px 16px;
+    margin: 5px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 0.9rem;
+  }
+  
+  .play-btn:hover,
+  .info-btn:hover {
+    background-color: #f40612;
+  }
+  
+  /* 화살표 버튼 */
+  .slider-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(0, 0, 0, 0.6);
+    color: white;
+    border: none;
+    width: 50px;
+    height: 100%;
+    border-radius: 5%;
+    cursor: pointer;
+    z-index: 100;
+  }
+  
+  .slider-btn.left {
+    left: -20px;
+  }
+  
+  .slider-btn.right {
+    right: -20px;
+  }
+  
