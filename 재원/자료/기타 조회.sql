@@ -5,6 +5,9 @@ SELECT DISTINCT asset_nm
 FROM lg_hellovisionvod.vod_data_202310
 WHERE asset_nm LIKE '%classic%';
 
+SELECT DISTINCT asset_nm 
+FROM lg_hellovisionvod.vod_data_202310
+WHERE asset_nm LIKE '%런닝맨%';
 
 SELECT * FROM lg_hellovisionvod.vod_data_202309
 where asset_nm like '%회' and CT_CL like '기타';
