@@ -18,7 +18,7 @@ def delete_adult_genre():
             while True:
                 # DELETE 쿼리 실행 (배치 단위)
                 delete_query = """
-                DELETE FROM vod_data_202301
+                DELETE FROM vod_data_202306
                 WHERE genre_of_ct_cl = '성인'
                 LIMIT %s;
                 """
