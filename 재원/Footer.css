@@ -1,0 +1,84 @@
+.footer {
+  background-color: #111;
+  color: #fff;
+  padding: 20px;
+  text-align: center;
+  font-family: Arial, sans-serif;
+}
+
+.footer-logo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px; /* 로고와 텍스트 사이 간격 */
+  margin-bottom: 25px;
+}
+
+.logo-image {
+  width: 50px;
+  height: 50px;
+}
+
+.footer-logo h1 {
+  font-size: 36px;
+  color: #ED174D;
+  margin: 0; /* 텍스트의 여백 제거 */
+}
+
+.footer-logo h1 span {
+  color: #fff;
+}
+
+.footer-icons {
+  margin: 3px 0;
+}
+
+.footer-icons .icon {
+  display: inline-block;
+  width: 70px;
+  height: 70px;
+  margin: 0 5px;
+  background-color: #D9D9D933;
+  color: #fff;
+  opacity: 80%;
+  border-radius: 50%;
+  font-size: 30px;
+  text-align: center;
+  line-height: 50px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.footer-icons .icon:hover {
+  color: #ED174D;
+}
+
+.footer-info {
+  font-family: 'LGEIHeadlineTTF-Bold';
+  margin: 40px 0;
+  font-size: 16px;
+  line-height: 3px;
+  color: #B6B6B6;
+}
+
+.footer-links {
+  margin: 15px 0;
+}
+
+.footer-links a {
+  color: #B6B6B6;
+  text-decoration: none;
+  margin: 0 5px;
+}
+
+.footer-links a:hover {
+  text-decoration: underline;
+}
+
+.footer-copyright {
+  margin-top: 10px;
+  font-size: 12px;
+  color: #888;
+}
