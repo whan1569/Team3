@@ -1,0 +1,14 @@
+.main-container {
+    width: 100%; /* 화면 너비 100% 설정 */
+    margin: 0;
+    padding: 0;
+    background-color: #111;
+  }
+  
+  .main {
+    margin: 0;
+    padding: 0;
+    width: 100%; /* 화면 가로 전체로 확장 */
+    height: 80vh; /* 화면 높이 100% */
+  }
+  
