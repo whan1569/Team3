@@ -1,0 +1,68 @@
+.movie {
+  position: relative;
+  width: 300px;
+  height: 170px;
+  margin: 10px;
+  overflow: visible; /* 범위 밖으로 확대 허용 */
+}
+
+.movie-poster {
+  width: 100%;
+  height: 100%;
+  border-radius: 10px;
+  margin-left: 80px;
+  transition: transform 0.3s ease, z-index 0.3s ease;
+  right: 0;
+}
+
+.movie.hovered .movie-poster {
+  transform: scale(1.5); /* 이미지 확대 */
+  z-index: 2; /* 위로 올라오도록 설정 */
+}
+
+.movie-hover {
+  position: absolute;
+  width: 400px;
+  height: 350px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(0, 0, 0, 0.8);
+  opacity: 0;
+  border-radius: 10px;
+  transition: opacity 0.3s ease;
+}
+
+.movie.hovered .movie-hover {
+  opacity: 1;
+}
+
+.hover-poster {
+  width: 100%;
+  height: 255px;
+  border-radius: 10px;
+  margin-bottom: 10px;
+}
+
+.movie-buttons {
+  display: flex;
+  gap: 10px;
+}
+
+.play-btn,
+.info-btn {
+  padding: 8px 12px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 14px;
+  color: #fff;
+  background-color: #d84c5f;
+  transition: background-color 0.3s ease;
+}
+
+.play-btn:hover,
+.info-btn:hover {
+  background-color: #a83847;
+}

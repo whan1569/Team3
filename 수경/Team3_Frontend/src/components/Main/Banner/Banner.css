@@ -1,0 +1,193 @@
+.banner {
+  position: relative;
+  width: 100%;
+  height: 80vh;
+  background-color: black;
+}
+
+.slide {
+  position: relative;
+  width: 100%;
+  height: 80vh;
+}
+
+.slide-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.content {
+  position: absolute;
+  bottom: 50px;
+  left: 50px;
+  color: white;
+  z-index: 2;
+  max-width: 650px;
+}
+
+.title {
+  font-size: 3rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+  text-align: left;  
+}
+
+.banner_buttons {
+  display: flex;
+  gap: 1rem;
+}
+
+.button {
+  color: white;
+  outline: none;
+  border: none;
+  font-weight: 700;
+  border-radius: 5px;
+  padding: 15px 30px;
+  background-color: rgba(51, 51, 51, 0.8);
+  cursor: pointer;
+}
+
+.button:hover {
+  color: black;
+  background-color: #e6e6e6;
+}
+
+.description {
+  margin-top: 1.5rem;
+  font-size: 1.2rem;
+  line-height: 1.5;
+  max-width: 600px;
+  text-align: left;
+}
+
+.fade_bottom {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 7.4rem;
+  background-image: linear-gradient(180deg, transparent, rgba(37, 37, 37, 0.61), #111);
+}
+
+
+/* 슬라이더 스타일 추가 */
+.slick-slider {
+  position: relative;
+}
+
+.slick-arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 3;
+  font-size: 2rem;
+  color: white;
+  cursor: pointer;
+}
+
+.slick-prev {
+  left: 10px;
+}
+
+.slick-next {
+  right: 10px;
+}
+
+.slick-dots {
+  position: absolute !important; /* 위치 강제 적용 */
+  left: 85% !important; /* 오른쪽 여백 강제 */
+  bottom: 30px !important; /* 아래쪽 여백 강제 */
+  z-index: 10 !important; /* 다른 요소 위로 표시 */
+  display: flex !important;
+  justify-content: flex-start;
+  gap: 10px;
+}
+
+.slick-dots li button:before {
+  font-size: 10px;
+  color: rgba(255, 255, 255, 0.6); /* 기본 색상 */
+}
+
+.slick-dots li.slick-active button:before {
+  color: white; /* 활성화된 점의 색상 */
+}
+
+
+/* 배너 슬라이더 내 슬라이드 */
+.slide {
+  width: 100%;
+  height: 80vh;
+  background-size: cover;
+  background-position: center;
+  position: relative;
+}
+
+.slide .content {
+  position: absolute;
+  bottom: 50px;
+  left: 50px;
+  color: white;
+  z-index: 2;
+}
+
+.slide .fade_bottom {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 10%;
+  background-image: linear-gradient(180deg, transparent, rgba(37, 37, 37, 0.61), #111);
+}
+
+/* 화살표 텍스트 제거 및 디자인 */
+.slick-prev::before,
+.slick-next::before {
+  content: '' !important; /* 화살표 텍스트 제거 강제 적용 */
+  display: inline-block !important; /* 화살표 모양 유지 */
+  width: 10px !important; /* 화살표 크기 */
+  height: 10px !important;
+  border: solid white !important; /* 화살표 색상 */
+  border-width: 0 3px 3px 0 !important; /* 화살표 모양 */
+}
+
+.slick-prev::before {
+  transform: rotate(135deg) !important; /* 왼쪽 화살표 방향 */
+}
+
+.slick-next::before {
+  transform: rotate(-45deg) !important; /* 오른쪽 화살표 방향 */
+}
+
+/* 화살표 컨테이너 스타일 */
+.slick-prev,
+.slick-next {
+  z-index: 10; /* 화살표가 항상 보이게 */
+  background: none; /* 배경 제거 */
+  border: none; /* 테두리 제거 */
+  width: 40px; /* 화살표 컨테이너 크기 */
+  height: 40px;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  cursor: pointer;
+}
+
+.slick-prev {
+  left: 10px; /* 왼쪽 위치 */
+}
+
+.slick-next {
+  right: 10px; /* 오른쪽 위치 */
+}
+
+.slick-prev::before,
+.slick-next::before {
+  content: '' !important; /* 텍스트 제거 */
+}
+
+.slick-prev,
+.slick-next {
+  color: transparent !important; /* 링크의 기본 텍스트 색 제거 */
+  background: none !important; /* 배경 제거 */
+  border: none !important; /* 경계 제거 */
+}
