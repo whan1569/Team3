@@ -1,0 +1,128 @@
+/* 섹션 제목 스타일 */
+.section_title {
+  color: white;
+  margin-bottom: 20px;
+  margin-left: 20px; /* 왼쪽으로 정렬 */
+  text-align: left;
+  font-size: 1.5rem;
+  padding-left: 20px; /* 내용과 제목 간 여백 추가 */
+}
+
+
+/* 슬라이더 컨테이너 */
+.slider_container {
+  display: flex;
+  overflow-x: auto; /* 가로 스크롤 가능 */
+  gap: 10px;
+  scroll-behavior: smooth;
+  padding-bottom: 20px;
+  margin-left: 40px;
+}
+
+.slider_container::-webkit-scrollbar {
+  display: none; /* 스크롤바 숨기기 */
+}
+
+/* 영화 카드 */
+.movie_card {
+  flex-shrink: 0;
+  width: 200px;
+  height: 300px;
+  background-color: #222;
+  border-radius: 8px;
+  overflow: hidden;
+  position: relative;
+}
+
+.movie_image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* 호버 시 표시되는 콘텐츠 */
+.movie_hover {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.7);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease-in-out;
+}
+
+.movie_card:hover .movie_hover {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.movie_title {
+  color: white;
+  font-size: 1.2rem;
+  margin-bottom: 10px;
+}
+
+/* 버튼 스타일 */
+.movie_buttons {
+  display: flex;
+  gap: 10px;
+}
+
+.play_btn,
+.info_btn {
+  background-color: #e50914;
+  color: white;
+  border: none;
+  padding: 8px 12px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 0.9rem;
+  transition: background-color 0.3s ease;
+}
+
+.play_btn:hover,
+.info_btn:hover {
+  background-color: #f40612;
+}
+
+/* 좌우 스크롤 버튼 */
+.scroll_button {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: rgba(0, 0, 0, 0.5);
+  color: white;
+  border: none;
+  border-radius: 5px;
+  width: 40px;
+  height: 100%;
+  cursor: pointer;
+  z-index: 1000; /* 우선순위 설정 */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* .scroll_button:hover {
+  background-color: rgba(255, 255, 255, 0.8);
+  color: black;
+}
+ */
+.scroll_button.left {
+  left: 1px;
+}
+
+.scroll_button.right {
+  right: 1px;
+}
+
+/* 스크롤 버튼 디스플레이 문제 해결 */
+.slider_wrapper {
+  position: relative;
+}
