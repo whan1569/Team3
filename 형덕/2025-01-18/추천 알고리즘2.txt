@@ -1,0 +1,97 @@
+1. 콘텐츠 기반 필터링 (Content-Based Filtering)	(X)
+
+1) TF-IDF (Term Frequency-Inverse Document Frequency)
+-텍스트 기반 콘텐츠(줄거리, 배우 이름 등)를 벡터화.
+-단어의 빈도와 중요도를 고려하여 콘텐츠 간 유사성을 계산.
+-활용 사례: 영화 줄거리나 리뷰를 기반으로 콘텐츠 유사성 평가.
+2)Word2Vec / Doc2Vec
+-텍스트 임베딩 알고리즘으로, 텍스트를 벡터로 변환.
+-단어(Word2Vec) 또는 문서 수준(줄거리 전체)을 벡터화.
+-활용 사례: 영화 줄거리의 의미를 임베딩 벡터로 변환하여 유사도 계산.
+3)Cosine Similarity
+-콘텐츠 특징 벡터 간의 유사도를 측정.
+-벡터의 크기보다 방향을 중요시.
+-활용 사례: 장르, 배우, 감독 등의 벡터화된 데이터를 비교.
+
+2. 협업 필터링 (Collaborative Filtering)(O)
+a. 사용자 기반 협업 필터링
+1)K-Nearest Neighbors (KNN)
+-가장 유사한 K명의 사용자를 탐색하여 추천.
+-활용 사례: 특정 사용자의 평가 패턴과 가장 유사한 사용자 그룹을 찾음.
+2)Pearson Correlation
+-사용자 간의 평가 상관관계를 계산.
+-활용 사례: 평가 패턴의 경향성을 반영하여 추천 품질 향상.
+3)Cosine Similarity
+-사용자 간 평가 벡터의 방향성을 비교.
+-활용 사례: 평가 점수의 절대값보다는 패턴 유사성에 중점.
+b. 아이템 기반 협업 필터링
+1)Item-Item Cosine Similarity
+-아이템(영화) 간의 유사성을 평가하여 추천.
+활용 사례: 비슷한 영화를 본 사용자 패턴에 따라 추천.
+2)Matrix Factorization
+-사용자와 아이템 간의 상호작용 데이터를 잠재 요인으로 분해.
+-활용 사례: 숨겨진 사용자-아이템 관계를 학습하여 개인화 추천.
+
+3. 하이브리드 필터링 (Hybrid Filtering)
+
+1)Weighted Hybrid
+-콘텐츠 기반 필터링과 협업 필터링의 점수를 가중합하여 추천.
+-활용 사례: 콘텐츠 유사도(70%)와 사용자 협업 점수(30%)를 조합.
+2)Switching Hybrid
+-상황에 따라 콘텐츠 기반 또는 협업 필터링 중 하나를 선택.
+-활용 사례: 데이터 양이 적으면 콘텐츠 기반, 많으면 협업 필터링.
+3)Feature Augmentation
+-협업 필터링의 결과를 콘텐츠 기반 필터링의 입력으로 활용.
+-활용 사례: 콘텐츠 특징 벡터를 사용자-아이템 행렬의 추가 차원으로 통합.
+
+4. 지식 기반 추천 (Knowledge-Based Recommendation)(X)
+1)Constraint-Based Filtering
+-사용자가 입력한 명시적 조건(예: "1시간 이하의 코미디 영화")을 만족하는 콘텐츠 추천.
+-활용 사례: 명확한 조건 기반 검색.
+2)Case-Based Reasoning (CBR)
+-과거 유사 사례를 기반으로 콘텐츠를 추천.
+-활용 사례: "다른 사용자들이 비슷한 조건에서 좋아한 영화 추천."
+
+5. 그래프 기반 추천 (Graph-Based Recommendation)(X)
+1)PageRank
+-그래프의 노드 중요도를 계산.
+-활용 사례: 사용자-아이템 그래프에서 중요한 노드(영화)를 추천.
+2)Random Walk
+-그래프에서 랜덤하게 이동하며 연결된 콘텐츠를 탐색.
+-활용 사례: 사용자가 본 영화의 연관된 영화를 탐색.
+3)Heterogeneous Graph Embedding
+-사용자와 아이템의 관계를 임베딩 벡터로 변환.
+-활용 사례: 복잡한 관계(사용자-영화-장르)를 통합적으로 분석.
+
+6. 딥러닝 기반 추천 (Deep Learning-Based Recommendation)(X)
+1)AutoEncoder
+-입력 데이터를 압축하고 복원하는 신경망 구조로 특징 학습.
+-활용 사례: 사용자-아이템 행렬의 희소성을 해결.
+-Recurrent Neural Network (RNN)
+-시간적 시퀀스 데이터를 학습.
+-활용 사례: 사용자의 시청 이력을 시간 순서에 따라 학습.
+2)Convolutional Neural Network (CNN)
+-이미지, 비디오 등 공간적 정보를 학습.
+-활용 사례: 영화 포스터나 트레일러 기반 추천.
+
+7. 강화 학습 기반 추천 (Reinforcement Learning-Based Recommendation)
+1)Q-Learning(O)
+-사용자 행동에 따른 보상을 학습하여 추천.
+-활용 사례: 특정 콘텐츠 추천 후의 클릭/시청 데이터를 기반으로 업데이트.
+2)Deep Q-Learning(X)
+-Q-Learning에 딥러닝 모델을 결합하여 복잡한 보상 구조 학습.
+-활용 사례: 실시간으로 개인화 추천 업데이트.
+3)Multi-Armed Bandit(X)
+-여러 옵션 중 최적의 행동을 선택하는 알고리즘.
+-활용 사례: 여러 추천 전략 중 최고의 성능을 가진 것을 선택.
+
+8. 연관 규칙 기반 추천 (Association Rule-Based Recommendation)
+1)Apriori Algorithm(O)
+-빈번한 아이템 집합을 탐색하여 연관 규칙을 생성.
+-활용 사례: A 영화를 본 사용자가 B 영화를 함께 본 패턴 탐색.
+2)FP-Growth	
+-트리 구조를 사용해 연관 규칙을 빠르게 생성.
+-활용 사례: 대규모 데이터셋에서의 연관 규칙 학습.
+3)Market Basket Analysis(X)
+-구매 패턴 분석을 추천에 적용.
+-활용 사례: 사용자가 구매한 제품을 기반으로 다른 제품 추천.
