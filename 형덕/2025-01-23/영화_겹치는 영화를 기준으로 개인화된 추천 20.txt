@@ -1,0 +1,69 @@
+1. 사용자 기반 협업 필터링 (User-Based Collaborative Filtering)
+
+1) 사용된 코드:
+grouped_users = (
+    user_genre_data.groupby('user_id')['movie_id']
+    .apply(set)
+)
+common_movie_counts = grouped_users.apply(lambda x: len(x.intersection(user_movies)))
+2) 적용 알고리즘:
+-모델: 협업 필터링 기반 추천 시스템
+-알고리즘: 사용자 간 유사성을 교집합 크기로 평가
+3) 사용 이유:
+-검색 사용자와 비슷한 취향의 사용자 그룹을 찾기 위해.
+
+2. 집합 연산 기반 유사성 측정 (Set-Based Similarity Calculation)
+
+1) 사용된 코드:
+common_movie_counts = grouped_users.apply(lambda x: len(x.intersection(user_movies)))
+2)적용 알고리즘:
+-모델: 집합 기반 데이터 분석
+-알고리즘: 교집합 연산(intersection)을 사용한 유사성 평가
+3) 사용 이유:
+-두 사용자가 공통으로 본 영화 수를 계산하여 유사성을 비교하기 위해.
+
+
+3. 그룹화와 집계 (Grouping & Aggregation)
+
+1)사용된 코드:
+recommended_movies = (
+    movies_not_watched_by_search_user.drop_duplicates(subset=['user_id', 'movie_id'])
+    .groupby('movie_id')
+    .size()
+    .reset_index(name='popularity')
+    .sort_values(by='popularity', ascending=False)
+    .head(20)
+)
+2) 적용 알고리즘:
+-모델: 집계 기반 추천
+-알고리즘:
+	groupby: 영화 ID별로 그룹화.
+	size: 그룹별 크기(시청 횟수)를 계산.
+3) 사용 이유:
+검색 사용자가 보지 않은 영화 중 상위 20명의 사용자들이 많이 본 영화를 추천하기 위해.
+
+4. 필터링 알고리즘 (Filtering)
+
+1) 사용된 코드:
+movies_by_top_20_users = user_genre_data[user_genre_data['user_id'].isin(top_20_users['user_id'])]
+movies_not_watched_by_search_user = movies_by_top_20_users[~movies_by_top_20_users['movie_id'].isin(user_movies)]
+2) 적용 알고리즘:
+-모델: 사용자 영화 데이터 필터링
+-알고리즘:
+	isin: 특정 조건을 만족하는 데이터 필터링.
+	~isin: 검색 사용자가 이미 본 영화를 제외.
+3) 사용 이유:
+추천 리스트에서 중복되거나 이미 본 영화를 제외하기 위해.
+
+5. 순위 기반 추천 (Ranking-Based Recommendation)
+1) 사용된 코드:
+.sort_values(by='popularity', ascending=False)
+.head(20)
+2) 적용 알고리즘:
+-모델: 순위 기반 추천 모델
+-알고리즘:
+인기 순 정렬(sort_values) 후 상위 20개 선택.
+-사용 이유:
+추천 영화 리스트에서 인기도가 높은 항목을 우선적으로 제시하기 위해.
+
+
