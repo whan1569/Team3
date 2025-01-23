@@ -1,0 +1,41 @@
+VOD_MART 삭제 할 컬럼과 사유
+
+seasn_prem_fl
+seasn_fin_fl
+prevw_prd
+preview_rate
+preview_file_nm
+//
+thmbnl_rep_file_nm - 썸네일대표파일명 : 우리가 쓰지 않는 서버의 값임
+thmbnl_del_fl
+thmbnl_fl
+thmbnl_pt
+img_base_dir
+
+
+sub_title
+star_score
+show_tp
+prdcrs
+poster_del_fl
+orgnl_air_dt
+mobile_watch_url
+one_line_review
+//
+audience_cnt
+aud
+disp_as_lst_chnc
+disp_as_new
+dsbtr_nm
+grade_score
+hash_tag
+long_tail_fl
+is_hot_fl
+is_new_fl
+ver_minor
+ver_major
+use_fl                   - 모든값이 동일하고 의미없는 데이터
+
+ttl_lng
+ttl_mdm
+ttl_sort_nm            - 의미없는값 제목에서 추출할수 있고 전체에서 90가 넘는 값이 NULL임
