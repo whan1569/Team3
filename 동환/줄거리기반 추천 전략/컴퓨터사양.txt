@@ -1,0 +1,7 @@
+CPU: 12th Gen Intel(R) Core(TM) i5-1235U
+Physical Cores: 10
+Logical Cores (Threads): 12
+Total Memory: 31.71 GB
+Available Memory: 23.24 GB
+Platform: Windows
+Platform Version: 10.0.22631
