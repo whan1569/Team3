@@ -1,0 +1,49 @@
+문장 임베딩 모델 성능 비교
+
+1. all-MiniLM-L6-v2
+    - 특징: MiniLM 기반의 경량 모델로, 특히 빠른 속도와 높은 품질의 임베딩을 제공합니다.
+    - 장점: 빠른 처리 속도와 작은 모델 크기. 대규모 데이터셋에서 유리.
+    - 추천 용도: 텍스트 유사도 계산, 의미 기반 검색, 문장 간 비교 등에 적합.
+
+2. paraphrase-MiniLM-L6-v2
+    - 특징: all-MiniLM-L6-v2와 유사하지만, 문장의 의미를 더욱 정확히 반영하도록 학습된 모델.
+    - 장점: 상대적으로 작은 크기와 빠른 처리 속도에도 불구하고 높은 품질의 문장 임베딩 생성.
+    - 추천 용도: 텍스트 유사도 계산, 의미 기반 검색, 문장 간 비교 등에 적합.
+
+3. distilbert-base-nli-stsb-mean-tokens
+    - 특징: DistilBERT는 BERT 모델을 경량화한 모델로, NLI(Natural Language Inference) 작업을 위해 학습됨.
+    - 장점: BERT보다 경량화되어 속도와 메모리 사용 측면에서 유리. 여전히 우수한 성능을 보임.
+    - 추천 용도: 의미 기반 문장 유사도 계산, 자연어 추론(NLI) 작업에 유용.
+
+4. roberta-base-nli-stsb-mean-tokens
+    - 특징: RoBERTa는 BERT의 변형 모델로, 더 많은 데이터를 기반으로 학습되어 성능이 향상됨.
+    - 장점: BERT보다 높은 성능을 자랑하지만, 모델 크기와 처리 속도에서 불리할 수 있음.
+    - 추천 용도: 더 정확한 결과가 필요한 고급 텍스트 유사도 분석 및 문서 임베딩에 적합.
+
+5. all-distilroberta-v1
+    - 특징: DistilRoBERTa는 RoBERTa 모델을 경량화한 모델로, 성능을 유지하면서 빠르고 효율적임.
+    - 장점: RoBERTa의 성능과 DistilBERT의 속도 및 효율성을 합친 모델.
+    - 추천 용도: 문장 임베딩과 유사도 계산을 포함한 다양한 자연어 처리 작업에 적합.
+
+6. paraphrase-distilroberta-base-v1
+    - 특징: DistilRoBERTa의 변형으로, 주로 문장 유사도 계산에 최적화된 모델.
+    - 장점: DistilRoBERTa 모델을 기반으로, 성능을 유지하면서 더 빠르고 가벼움.
+    - 추천 용도: 빠른 속도로 고품질의 문장 유사도를 계산하고 싶은 경우에 적합.
+
+7. sentence-BERT (BERT-based)
+    - 특징: BERT 모델을 Siamese network 구조로 확장한 모델. 다양한 데이터셋에서 훈련된 문장 유사도 모델.
+    - 장점: 여러 자연어 처리 작업에 적합하며, 높은 정확도를 자랑.
+    - 추천 용도: 문장 수준의 유사도 분석, 텍스트 분류, 클러스터링 등에 적합.
+
+성능 비교
+
+- 속도: MiniLM 계열 모델들(all-MiniLM-L6-v2, paraphrase-MiniLM-L6-v2)은 상대적으로 빠르고 메모리 사용이 적습니다. 대규모 데이터셋에서 유리한 점이 많습니다.
+- 정확도: RoBERTa 계열 모델들(roberta-base-nli-stsb-mean-tokens, all-distilroberta-v1)은 더 정확한 결과를 제공할 수 있지만, 처리 속도는 상대적으로 느릴 수 있습니다.
+- 용량: DistilBERT나 DistilRoBERTa 계열은 작은 모델 크기와 빠른 속도를 제공합니다. 다만, 정확도 측면에서 약간의 차이가 있을 수 있습니다.
+
+추천 이유
+- 빠른 성능과 용량 효율성이 중요하다면 MiniLM 계열 모델(all-MiniLM-L6-v2, paraphrase-MiniLM-L6-v2)이 적합합니다.
+- 정확도가 우선시 되는 경우는 RoBERTa 기반 모델(roberta-base-nli-stsb-mean-tokens)을 고려할 수 있습니다.
+- 속도와 메모리 효율성을 동시에 고려해야 하는 경우는 DistilBERT 계열 모델이나 DistilRoBERTa 계열이 좋은 선택이 될 수 있습니다.
+
+각 모델의 성능을 실제 사용 환경에서 비교하고 선택하는 것이 중요하며, 실험을 통해 최적의 모델을 선택할 수 있습니다.
