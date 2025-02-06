@@ -1,0 +1,60 @@
+# 시스템 및 OS 관련  
+subprocess  
+    시스템 명령어를 실행하는 모듈  
+
+os  
+    운영체제와 상호작용하는 기능을 제공하는 모듈  
+
+sys  
+    시스템 관련 기능을 제공하는 모듈 (예: 경로 설정, 프로그램 종료)  
+
+time  
+    시간 관련 기능을 제공하는 모듈  
+
+logging  
+    애플리케이션의 로그를 기록하는 모듈  
+
+# 데이터베이스 관련  
+mysql.connector  
+    MySQL 데이터베이스와 연결하고 조작하는 라이브러리  
+
+chromadb  
+    벡터 데이터베이스로, 임베딩 데이터 저장 및 검색에 사용  
+
+# 병렬 처리 관련  
+multiprocessing  
+    멀티프로세싱을 지원하는 모듈 (병렬 프로세스 실행)  
+
+concurrent.futures.ThreadPoolExecutor, as_completed  
+    멀티스레딩을 지원하는 모듈 (병렬 작업 실행)  
+
+# 시스템 모니터링 관련  
+psutil  
+    CPU, 메모리 사용량 모니터링을 위한 모듈  
+
+# 데이터 처리 및 분석 관련  
+pandas  
+    데이터 분석 및 처리에 사용되는 라이브러리 (DataFrame 활용)  
+
+numpy  
+    다차원 배열 및 수치 계산을 위한 라이브러리  
+
+glob  
+    특정 패턴과 일치하는 파일 목록을 가져오는 모듈  
+
+pickle  
+    파이썬 객체를 파일로 저장하거나 불러오는 모듈 (직렬화, 역직렬화)  
+
+# 자연어 처리 및 머신러닝 관련  
+pykospacing.Spacing  
+    한국어 문장에서 띄어쓰기 교정을 수행하는 라이브러리  
+
+sentence_transformers.SentenceTransformer  
+    문장을 임베딩 벡터로 변환하는 라이브러리 (BERT 기반)  
+
+sklearn.metrics.pairwise.cosine_similarity  
+    코사인 유사도를 계산하는 함수 (문장 간 유사도 비교에 사용)  
+
+# 데이터 시각화 관련  
+matplotlib.pyplot  
+    데이터 시각화를 위한 그래프 및 플롯 생성 라이브러리  
